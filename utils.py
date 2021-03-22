@@ -1,7 +1,10 @@
 from zmanim.zmanim_calendar import ZmanimCalendar
 from slack import WebClient
+import os
 
-client = WebClient('xoxb-1587525278033-1575125138755-bcAvj7balyzss74JO1bRsKTj')
+slack_bot = os.environ['NOTIFICATIONS_SLACK_TOKEN']
+
+client = WebClient(slack_bot)
 
 calendar = ZmanimCalendar()
 
@@ -35,5 +38,5 @@ class SunsetNotification:
         )
 
 
-# notification = SunsetNotification()
-# notification.sunset_time()
+notification = SunsetNotification()
+notification.sunset_time()
